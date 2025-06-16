@@ -3,10 +3,18 @@ resource "aws_instance" "expense" {
   ami                    = "ami-09c813fb71547fc4f" # This is our devops-practice AMI ID
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   instance_type          = "t3.micro"
-  tags = {
+ /*  tags = {
     Name = var.instances[count.index]
-  }
+  } */
+
+  tags = merge(
+    var.common_tags,
+    {
+        Name = var.instances[count.index]
+    }
+  )
 }
+
 
 resource "aws_security_group" "allow_tls" {
   name        = "allow_tls_1"
