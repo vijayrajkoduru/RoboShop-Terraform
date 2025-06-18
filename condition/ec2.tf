@@ -24,7 +24,7 @@ resource "aws_security_group" "killing" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-    tags={
-       Name = "condition-backend-dev"
-    }
+  tags = {
+    Name = "condition-backend-dev"
+  }
 }
