@@ -4,13 +4,10 @@ resource "aws_instance" "state" {
   instance_type          = var.instance_id
 
   tags = var.ec2_tgs
-
 }
-
 resource "aws_security_group" "delete" {
   name        = "delete"
   description = "inbound and outbound"
-
 
   ingress {
     from_port        = var.from_port
@@ -18,8 +15,6 @@ resource "aws_security_group" "delete" {
     protocol         = var.protocol
     cidr_blocks      = var.cidr_blocks
     ipv6_cidr_blocks = ["::/0"]
-
-
   }
   egress {
     from_port        = var.from_port
@@ -27,9 +22,7 @@ resource "aws_security_group" "delete" {
     protocol         = var.protocol
     cidr_blocks      = var.cidr_blocks
     ipv6_cidr_blocks = ["::/0"]
-
   }
-
   tags = {
     Name = var.sg_n
   }
