@@ -7,8 +7,8 @@ terraform {
   }
 
   backend "s3" {
-    bucket       = "pooke"
-    key          = "table-pooke"
+    bucket       = "counter"
+    key          = "table-kite"
     region       = "us-east-1"
     encrypt      = true
     use_lockfile = true
